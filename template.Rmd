@@ -2,20 +2,16 @@
 title: "Simple document"
 output: html_document
 ---
-
-I'm an R Markdown document! 
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
-```{r}
-samp = rnorm(100)
-length(samp)
+```{r echo=FALSE}
+library(tidyverse)
 ```
 
-# Section 2
+## Data Import: CVs
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+Lets import data using the 'readr' package 
+
+```{r}
+litters_df = read_csv("data/FAS_litters.csv")
+litters_df = janitor::clean_names(litters_df)
+```
+
